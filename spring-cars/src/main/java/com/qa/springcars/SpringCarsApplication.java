@@ -1,22 +1,34 @@
 package com.qa.springcars;
 
+import java.time.LocalTime;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringCarsApplication {
 
 	public static void main(String[] args) {
-	SpringApplication.run(SpringCarsApplication.class, args);
+	ApplicationContext beanBag = SpringApplication.run(SpringCarsApplication.class, args);
+	
+	beanBag.containsBean("getCurrent");
+	
 	}
 	
+	//@Bean
+	//public String greeting() {
+		//return "Hello, World";
+	//}
+	
 	@Bean
-	public String greeting() {
-		return "Hello, World";
-	}
+	public LocalTime getCurrent() {
+		return LocalTime.now();
 
 }
+	
+	}
 
 
 //Bean - managed object 
