@@ -1,10 +1,18 @@
 package com.qa.service;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.qa.repo.CarRepo;
+import com.qa.springcars.domain.Car;
+
+
+@Service
 public class CarService {
 	
 	
-	@Service
-	public class CarService {
 			private CarRepo repo;
 			
 			public CarService(CarRepo repo) {
@@ -26,7 +34,7 @@ public class CarService {
 		
 		// READ ONE
 		public Car getVehicle(Long id) {
-			optional<Car> c = this.repo.findBYID(id);
+			Optional<Car> c = this.repo.findBYID(id);
 			return c.get();
 			
 			
@@ -40,12 +48,17 @@ public class CarService {
 		}
 		
 		// DELETE 
-		public boolean renoveVehicle(long id) {
+		public boolean renoveVehicle(Long id) {
 			this.repo.deleteByID(id);
-			return this.repo.exist
+			return this.repo.existsByID(id);
 		
 		
 		}
+		
+		//UPDATE public Car updateVehicle(Long id, Car newCar) {
+			Car existing = this.getVehicle(id);
+			existing.setMake(newCar.getMake());
+			
 	}
 	
 
