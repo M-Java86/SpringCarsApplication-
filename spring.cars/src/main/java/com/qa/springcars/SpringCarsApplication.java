@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.qa.springcars.controller.CarController;
+
 @SpringBootApplication
 public class SpringCarsApplication {
 
@@ -17,7 +19,8 @@ public class SpringCarsApplication {
 		System.out.println(beanbag.containsBean("greeting"));
 		System.out.println(beanbag.containsBean("getCurrent"));
 		
-		System.out.println(beanbag.containsBean("saysHello"));
+		CarController controller = beanbag.getBean(CarController.class);
+		System.out.println(controller.sayHello());
 		
 	}
 
