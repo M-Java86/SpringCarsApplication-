@@ -3,6 +3,7 @@ package com.qa.springcars.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,13 @@ import com.qa.springcars.domain.Car;
 
 @RestController //Allow eternal access to our application via HTTPSRequests
 public class CarController {
+	
+	private CarServiceList serivce;
+	
+	@Autowired
+	public CarController(CarServiceList service) {
+		this.serivce = service;
+	}
 
 	
         @GetMapping("/hello") //@TypeofRequest("location)
