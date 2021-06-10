@@ -31,10 +31,18 @@ public class CarController {
         // CREATE
         
         @PostMapping("/create")
-        public String createVehicle(@RequestBody Car car) { //@RequestBody pass some JSON , then convert that to a java object
+        public String createVehicle(@RequestBody Car car) { //@RequestBody pass some JSON , 
+        	//then convert that to a java object
         	// and store the data into our list(CarVehicle)
         	this.vehicles.add(car);
         	return "Successfully Added Car";
+        	
+        }
+        
+        //READ
+        @GetMapping("/getALL")
+        public List<Car> getALLVehicles() {
+        	return this.vehicles;
         	
         }
 	}
