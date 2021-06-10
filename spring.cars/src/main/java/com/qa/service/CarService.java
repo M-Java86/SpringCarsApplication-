@@ -14,6 +14,7 @@ public class CarService {
 	
 	
 			private CarRepo repo;
+			private Long id;
 			
 			public CarService(CarRepo repo) {
 				this.repo = repo;
@@ -33,31 +34,40 @@ public class CarService {
 		}
 		
 		// READ ONE
-		public Car getVehicle(Long id) {
-			Optional<Car> c = this.repo.findBYID(id);
+		public Optional<Car> getVehicle(Long id) {
+			Optional<Car> c = this.repo.findById(id);
 			return c.get();
 			
 			
-	////  optional<Car> c = this.repo.findBYID(id);
-			//if(c != null) {
-					//return c;
-			//} else {
-				//return null;
+	  Optional<Car> c = this.repo.findById(id);
+			if(c != null) {
+					return c;
+			} else {
+				return null;
 			}
 		
 		}
 		
 		// DELETE 
 		public boolean renoveVehicle(Long id) {
-			this.repo.deleteByID(id);
-			return this.repo.existsByID(id);
+			this.repo.deleteById(id);
+			return this.repo.existsById(id);
 		
 		
 		}
 		
-		//UPDATE public Car updateVehicle(Long id, Car newCar) {
+		//update
+		
+		public Car updateVehicle(Long id, Car newCar) {
 			Car existing = this.getVehicle(id);
 			existing.setMake(newCar.getMake());
+			existing.setModel(newCar.getModel());
+			existing.setYear(newCar.getYear());
+			existing.setDoors(newCar.getDoors());
+			
+			Car updated = this.repo.save(existing); // save it back to overwrite original
+			
+			return updated;
 			
 	}
 	
