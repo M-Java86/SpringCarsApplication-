@@ -8,10 +8,10 @@
 		<version>2.5.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.infosys</groupId>
-	<artifactId>spring-cars</artifactId>
+	<groupId>com.qa</groupId>
+	<artifactId>spring.cars</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-cars</name>
+	<name>spring.cars</name>
 	<description>Spring demo about cars</description>
 	<properties>
 		<java.version>11</java.version>
