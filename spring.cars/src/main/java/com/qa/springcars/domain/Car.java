@@ -1,6 +1,16 @@
 package com.qa.springcars.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity // Marks as Table 
 public class Car {
+	
+	@Id //PK-Primary Key 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	
 	//private- they can only be seen in the car class , interact with these attributes outside the car class
 	//getters and setters
