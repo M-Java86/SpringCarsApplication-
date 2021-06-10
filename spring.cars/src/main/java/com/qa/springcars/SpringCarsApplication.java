@@ -17,6 +17,8 @@ public class SpringCarsApplication {
 		System.out.println(beanbag.containsBean("greeting"));
 		System.out.println(beanbag.containsBean("getCurrent"));
 		
+		System.out.println(beanbag.containsBean("saysHello"));
+		
 	}
 
 	
