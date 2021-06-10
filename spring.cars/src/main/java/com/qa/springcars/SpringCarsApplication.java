@@ -21,7 +21,7 @@ public class SpringCarsApplication {
 	
 	
 	//Bean- managed object 
-	//meaning the creation, maintenance, and destruction of the object is ALL done by Spring 
+	//meaning the creation, maintenance, and destruction of the object is All done by Spring 
 	
 	@Bean
 	public String greeting() {
