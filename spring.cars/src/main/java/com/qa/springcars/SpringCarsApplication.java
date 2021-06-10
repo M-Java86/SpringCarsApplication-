@@ -13,6 +13,7 @@ public class SpringCarsApplication {
 	public static void main(String[] args) {
 		ApplicationContext beanbag = SpringApplication.run(SpringCarsApplication.class, args);
 		
+		// VERY SKETCHY - PLEASE DON'T USE IN YOUR APP
 		System.out.println(beanbag.containsBean("greeting"));
 		System.out.println(beanbag.containsBean("getCurrent"));
 		
