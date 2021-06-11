@@ -14,8 +14,6 @@ public class CarService {
 	
 	
 			private CarRepo repo;
-			private Long id;
-			
 			public CarService(CarRepo repo) {
 				this.repo = repo;
 			}
@@ -36,15 +34,7 @@ public class CarService {
 		// READ ONE
 		public Optional<Car> getVehicle(Long id) {
 			Optional<Car> c = this.repo.findById(id);
-			return c.get();
-			
-			
-	  Optional<Car> c = this.repo.findById(id);
-			if(c != null) {
-					return c;
-			} else {
-				return null;
-			}
+			return Optional.of(c.get());
 		
 		}
 		
